@@ -11,6 +11,7 @@
          <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}" media="screen" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://kit.fontawesome.com/8c57e8a16d.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- Responsive navbar-->
@@ -67,6 +68,13 @@
 <!--                            <p class="fs-5 mb-4">Venus has a runaway greenhouse effect. I kind of want to know what happened there because we're twirling knobs here on Earth without knowing the consequences of it. Mars once had running water. It's bone dry today. Something bad happened there as well.</p>-->
 <!--                        </section>-->
                         <p>{{ post.content }}</p>
+                        {% if post.file_upload %}
+                            <a href="{{ post.file_upload.url }}" class="btn btn-outline-dark" role="button" >Download :
+                            <i class="fa-solid fa-file"></i> {{post.get_file_name}}
+
+                            </a>
+                        {% endif %}
+
                     </article>
                     <!-- Comments section-->
                     <section class="mb-5">
