@@ -1,9 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block head_title %}
-{{post.title}}-Blog
-{% extends 'blog/base.html' %}
 
-{% block head_title %}
+{{post.title}}-Blog
 
     {{ post.title }} - Blog
 
@@ -12,6 +10,13 @@
 {% block main_area %}
                     <!-- Post content-->
                     <div id="post-area">
+                         {% if post.category %}
+                  <span class="badge badge-secondary float-right">{{ post.category }}</span>
+
+                  {% else %}
+                  <span class="badge badge-secondary float-right">미분류</span>
+
+                  {% endif %}
                     <!-- Post content-->
                     <article>
                         <!-- Post header-->
@@ -108,6 +113,3 @@
                     </section>
                         </div>
 {% endblock%}
-                    </div>
-
-{% endblock %}
