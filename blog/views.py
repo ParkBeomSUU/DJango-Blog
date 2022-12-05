@@ -47,7 +47,7 @@ class PostUpdate(LoginRequiredMixin,UpdateView):
                     tag.save()
                 self.object.tags.add(tag)
 
-                return response
+        return response
 
     def get_context_data(self, **kwargs):
         context = super(PostUpdate,self).get_context_data()
