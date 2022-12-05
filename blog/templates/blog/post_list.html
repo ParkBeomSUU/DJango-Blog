@@ -1,8 +1,10 @@
 {% extends 'blog/base.html' %}
 
         {% block main_area %}
+<script src="https://kit.fontawesome.com/8c57e8a16d.js" crossorigin="anonymous"></script>
+
 <h1>Blog{% if category %}<span class="badge badge-secondary">{{ category }}</span>{% endif %}
-{% if tag%}<span class="badge badge-secondary">{{ tag }}</span>{% endif %} </h1>
+{% if tag %}<span class="badge badge-secondary">{{ tag }}</span>{% endif %} </h1>
 
           {% if post_list.exists %}
           {% for p in post_list %}
@@ -27,6 +29,7 @@
                     <h5 class="text-muted">{{ p.hook_text }}</h5>
                   {% endif %}
                   <p class="card-text">{{ p.content | truncatewords:45 }}</p>
+
                   {% if p.tags.exists %}
                   <i class="fas fa-tags"></i>
                   {% for tag in p.tags.iterator %}
